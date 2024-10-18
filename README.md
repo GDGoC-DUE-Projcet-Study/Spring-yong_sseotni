@@ -6,7 +6,7 @@
 ```npm install -g gitmoji-cli``` // gitmoji-cli 설치  
   
 ```gitmoji -c``` // gitmoji-cli를 사용하여 커밋하기
-
+  
 
 ## 커밋메세지
 
