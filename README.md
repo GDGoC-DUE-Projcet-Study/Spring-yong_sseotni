@@ -4,6 +4,7 @@
 ## gitmoji 적용 방법
 
 ```npm install -g gitmoji-cli``` // gitmoji-cli 설치  
+  
 ```gitmoji -c``` // gitmoji-cli를 사용하여 커밋하기
 
 
