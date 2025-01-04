@@ -2,10 +2,21 @@
 <mapper namespace="BoardMapper">
 	
 	<select id="findByBoardPage" parameterType="HashMap" resultType="Board">
-	    SELECT * FROM board
-	    WHERE del_ny = #{delNy} 
-	    ORDER BY ${orderBy}
-	    LIMIT #{start}, #{count}
+	    SELECT 
+	        b.*, 
+	        u.user_nick 
+	    FROM 
+	        board b
+	    INNER JOIN 
+	        user u 
+	    ON 
+	        b.user_idx = u.user_idx
+	    WHERE 
+	        b.del_ny = #{delNy} 
+	    ORDER BY 
+	        ${orderBy}
+	    LIMIT 
+	        #{start}, #{count}
 	</select>
 	
 	<update id="deleteBoard" parameterType="Board">
