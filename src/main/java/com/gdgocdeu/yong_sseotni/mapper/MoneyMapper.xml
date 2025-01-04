@@ -86,6 +86,7 @@
 	
 	<select id="getMonthlyMoneyList" parameterType="map" resultType="map">
 		SELECT
+			money_when,
 			money_type,
 			money_where,
 			CASE

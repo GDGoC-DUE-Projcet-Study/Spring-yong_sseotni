@@ -111,6 +111,34 @@ public class UserController {
 		
 	}
 	
+	// SNS 로그인
+	@PostMapping("loginWithSNS")
+	public User loginWithSNS(
+			@RequestParam(value="sns_id") String sns_id,
+			@RequestParam(value="login_provider") String login_provider
+			) {
+		
+		User user = userService.findByEmail(sns_id);
+		
+		if (user == null) {
+			
+			User joinUser = new User();
+			joinUser.setUser_email(sns_id);
+			joinUser.setLogin_provider(login_provider);
+			joinUser.setUser_nick("");
+			joinUser.setUser_pw(login_provider);
+			
+			userService.join(joinUser);
+			
+			User savedUser = userService.findByEmail(sns_id);
+			return savedUser;
+			
+		} else {
+			return user;
+		}
+		
+	}
+	
 	// 로그인
 	@PostMapping("login")
 	public ResponseEntity<Object> login(

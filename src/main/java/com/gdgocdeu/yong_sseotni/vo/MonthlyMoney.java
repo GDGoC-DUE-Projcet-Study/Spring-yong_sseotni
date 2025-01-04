@@ -3,6 +3,7 @@ package com.gdgocdeu.yong_sseotni.vo;
 public class MonthlyMoney {
 
 	private String money_type;
+	private String money_when;
     private String money_where; 
     private Integer money_in;
     private Integer money_out;
@@ -14,6 +15,12 @@ public class MonthlyMoney {
 	}
 	public void setMoney_type(String money_type) {
 		this.money_type = money_type;
+	}
+	public String getMoney_when() {
+		return money_when;
+	}
+	public void setMoney_when(String money_when) {
+		this.money_when = money_when;
 	}
 	public String getMoney_where() {
 		return money_where;
