@@ -9,12 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gdgocdeu.yong_sseotni.vo.Board;
+import com.gdgocdeu.yong_sseotni.vo.User;
 
 @Repository
 public class BoardDao {
 
 	@Autowired
 	SqlSession s;
+	
+	public Board findByBoardDetail(int board_idx) {
+		return s.selectOne("BoardMapper.findByBoardDetail", board_idx);
+	}
 	
 	public List<Board> findByBoardPage(String orderBy, int start, int count, String delNy) {
 		Map<String, Object> params = new HashMap<>();

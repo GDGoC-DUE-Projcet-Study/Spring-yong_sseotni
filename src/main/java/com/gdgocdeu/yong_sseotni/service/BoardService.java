@@ -7,12 +7,17 @@ import org.springframework.stereotype.Service;
 
 import com.gdgocdeu.yong_sseotni.dao.BoardDao;
 import com.gdgocdeu.yong_sseotni.vo.Board;
+import com.gdgocdeu.yong_sseotni.vo.User;
 
 @Service
 public class BoardService {
 
 	@Autowired
 	BoardDao boardDao;
+	
+	public Board findByBoardDetail(int board_idx) {
+		return boardDao.findByBoardDetail(board_idx);
+	}
 	
 	public List<Board> findByBoardPage(String sortBy, int start, int count, String delNy) {
 		String orderBy = "created_date DESC";

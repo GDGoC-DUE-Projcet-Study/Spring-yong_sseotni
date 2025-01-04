@@ -28,6 +28,20 @@ public class BoardController {
 	@Autowired
 	UserService userService;
 	
+	// 게시글 상세조회
+	@GetMapping("/findByBoardDetail")
+	public ResponseEntity<?> findByBoardDetail(
+			@RequestParam(value="board_idx") int board_idx
+			){
+		Board board = boardService.findByBoardDetail(board_idx);
+		
+		if (board == null) {
+	        return new ResponseEntity<>("존재하지 않는 게시글입니다.", HttpStatus.NOT_FOUND);
+	    }
+		
+		return new ResponseEntity<Board>(board, HttpStatus.OK);
+	}
+	
 	// 게시글 조회(정렬조건, 페이지네이션 추가)
 	@GetMapping("findByBoardPage")
 	public List<Board> findByBoardPage(
